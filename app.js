@@ -21,6 +21,10 @@ function sortear() {
     for (let i = 0; i < quantidade; i++) {
         // Call function to generate random numbers within the specified range
         number = generateRandomNumbers(de, ate);
+        
+        while (generatedNumbers.includes(number)) {
+            number = generateRandomNumbers(de, ate);
+        }
         generatedNumbers.push(number);
         }
         
@@ -28,8 +32,8 @@ function sortear() {
     alert (generatedNumbers);
     
     // Display generated numbers
-    //let result = document.getElementById('resultado');
-    //result.innerHTML += '<label class="texto__paragrafo">' + generatedNumbers.join(', ') + '</label>';
+    let result = document.getElementById('resultado');
+    result.innerHTML = '<label class="texto__paragrafo">' + generatedNumbers.join(', ') + '</label>';
 }
 
 // Function to generate random numbers within a range
@@ -38,10 +42,10 @@ function generateRandomNumbers(min, max) {
     }
 
 // Function to reset
-function reiniciar() {
+//function reiniciar() {
     // Clear input fields and result
-    document.getElementById('quantidade').value = '';
-    document.getElementById('de').value = '';
-    document.getElementById('ate').value = '';
-    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Generated numbers: none yet</label>';
-}
+  //  document.getElementById('quantidade').value = '';
+  //  document.getElementById('de').value = '';
+  //  document.getElementById('ate').value = '';
+  //  document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Generated numbers: none yet</label>';
+// }
