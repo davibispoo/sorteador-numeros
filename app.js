@@ -34,6 +34,7 @@ function sortear() {
     // Display generated numbers
     let result = document.getElementById('resultado');
     result.innerHTML = '<label class="texto__paragrafo">' + generatedNumbers.join(', ') + '</label>';
+    alterarStatusBotao ()
 }
 
 // Function to generate random numbers within a range
@@ -41,11 +42,24 @@ function generateRandomNumbers(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
     }
 
+
+function alterarStatusBotao() {
+    let botao = document.getElementById('btn-reiniciar');
+    if (botao.classList.contains('container__botao-desabilitado')) {
+        botao.classList.remove('container__botao-desabilitado');
+        botao.classList.add('container__botao');
+    } else {
+        botao.classList.remove('container__botao');
+        botao.classList.add('container__botao-desabilitado');
+    }
+}
+
 // Function to reset
-//function reiniciar() {
+function reiniciar() {
     // Clear input fields and result
-  //  document.getElementById('quantidade').value = '';
-  //  document.getElementById('de').value = '';
-  //  document.getElementById('ate').value = '';
-  //  document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Generated numbers: none yet</label>';
-// }
+    document.getElementById('quantidade').value = '';
+    document.getElementById('de').value = '';
+    document.getElementById('ate').value = '';
+    document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Generated numbers: none yet</label>';
+  alterarStatusBotao ()
+ }
